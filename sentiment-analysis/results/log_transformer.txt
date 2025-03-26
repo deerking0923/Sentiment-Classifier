@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\tokenization_utils_base.py", line 2302, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\서인하\.cache\huggingface\modules\transformers_modules\monologg\kobert\38279184ba645e8c94d709fbe92eb5bcb47312c1\tokenization_kobert.py", line 109, in __init__
+    self.sp_model.Load(vocab_file)
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\sentencepiece\__init__.py", line 961, in Load
+    return self.LoadFromFile(model_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\sentencepiece\__init__.py", line 316, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: Not found: "C:\Users\서인하\.cache\huggingface\hub\models--monologg--kobert\snapshots\38279184ba645e8c94d709fbe92eb5bcb47312c1\tokenizer_78b3253a26.model": Illegal byte sequence Error #42
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\train_transformer.py", line 14, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("monologg/kobert", trust_remote_code=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 958, in from_pretrained
+    return tokenizer_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\tokenization_utils_base.py", line 2062, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\tokenization_utils_base.py", line 2317, in _from_pretrained
+    raise OSError(
+OSError: Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted.

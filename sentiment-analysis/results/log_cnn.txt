@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\dynamic_module_utils.py", line 649, in resolve_trust_remote_code
+    prev_sig_handler = signal.signal(signal.SIGALRM, _raise_timeout_error)
+                                     ^^^^^^^^^^^^^^
+AttributeError: module 'signal' has no attribute 'SIGALRM'. Did you mean: 'SIGABRT'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\train_cnn.py", line 21, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("monologg/kobert")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 945, in from_pretrained
+    trust_remote_code = resolve_trust_remote_code(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\dynamic_module_utils.py", line 665, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository for monologg/kobert contains custom code which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/monologg/kobert.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.
