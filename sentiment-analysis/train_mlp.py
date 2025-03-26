@@ -1,18 +1,21 @@
 import sys, os
 os.makedirs("results", exist_ok=True)
+
+# 로그 클래스 설정
 class Logger(object):
     def __init__(self, filename):
-        self.terminal = sys.__stdout__  # 원래 stdout 저장
+        self.terminal = sys.__stdout__
         self.log = open(filename, "w", encoding="utf-8")
 
     def write(self, message):
-        self.terminal.write(message)  # 터미널에도 출력
-        self.log.write(message)       # 파일에도 출력
+        self.terminal.write(message)
+        self.log.write(message)
 
     def flush(self):
         self.terminal.flush()
         self.log.flush()
-sys.stdout = open("results/log_mlp.txt", "w")
+
+sys.stdout = Logger("results/log_mlp.txt")
 sys.stderr = sys.stdout
 
 import torch
@@ -23,7 +26,7 @@ import json
 from transformers import AutoTokenizer
 from sklearn.metrics import accuracy_score, f1_score
 
-# 개선된 MLPClassifier
+# 개선된 MLP 분류기
 class MLPClassifier(nn.Module):
     def __init__(self, input_dim, hidden_dim, vocab_size, embedding_dim=128, num_classes=2):
         super().__init__()
@@ -35,13 +38,17 @@ class MLPClassifier(nn.Module):
         )
 
     def forward(self, x):
-        x = self.embedding(x.long())  # (batch, seq_len, embed_dim)
-        x = x.view(x.size(0), -1)     # (batch, seq_len * embed_dim)
+        x = self.embedding(x.long())
+        x = x.view(x.size(0), -1)
         return self.classifier(x)
 
 # 데이터 로딩
 raw_dataset = load_dataset("csv", data_files={"train": "data/ratings_train.txt", "test": "data/ratings_test.txt"}, sep="\t")
 raw_dataset = raw_dataset.rename_column("label", "labels")
+
+# 학습 데이터 일부만 사용 (10000개)
+raw_dataset["train"] = raw_dataset["train"].shuffle(seed=42).select(range(10000))
+raw_dataset["test"] = raw_dataset["test"].shuffle(seed=42).select(range(10000))
 
 # 토크나이저
 tokenizer = AutoTokenizer.from_pretrained("monologg/kobert", cache_dir="./hf_cache", trust_remote_code=True)
@@ -64,7 +71,7 @@ dataset.set_format("torch", columns=["input_ids", "labels"])
 train_loader = torch.utils.data.DataLoader(dataset["train"], batch_size=32, shuffle=True)
 test_loader = torch.utils.data.DataLoader(dataset["test"], batch_size=64)
 
-# 모델, 손실함수, 옵티마이저
+# 모델 설정
 vocab_size = tokenizer.vocab_size
 model = MLPClassifier(input_dim=max_len, hidden_dim=256, vocab_size=vocab_size)
 criterion = nn.CrossEntropyLoss()

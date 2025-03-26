@@ -1,19 +1,15 @@
-Traceback (most recent call last):
-  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\dynamic_module_utils.py", line 649, in resolve_trust_remote_code
-    prev_sig_handler = signal.signal(signal.SIGALRM, _raise_timeout_error)
-                                     ^^^^^^^^^^^^^^
-AttributeError: module 'signal' has no attribute 'SIGALRM'. Did you mean: 'SIGABRT'?
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Projects\SentimentClassifier\sentiment-analysis\train_cnn.py", line 21, in <module>
-    tokenizer = AutoTokenizer.from_pretrained("monologg/kobert")
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 945, in from_pretrained
-    trust_remote_code = resolve_trust_remote_code(
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Projects\SentimentClassifier\sentiment-analysis\.venv\Lib\site-packages\transformers\dynamic_module_utils.py", line 665, in resolve_trust_remote_code
-    raise ValueError(
-ValueError: The repository for monologg/kobert contains custom code which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/monologg/kobert.
-Please pass the argument `trust_remote_code=True` to allow custom code to be run.
+Map:   0%|                                                                            | 0/10000 [00:00<?, ? examples/s]Map:   5%|##9                                                             | 466/10000 [00:00<00:02, 4523.56 examples/s]Map:  10%|######1                                                         | 967/10000 [00:00<00:01, 4758.46 examples/s]Map:  16%|##########2                                                    | 1629/10000 [00:00<00:01, 4543.42 examples/s]Map:  23%|##############5                                                | 2313/10000 [00:00<00:01, 4532.77 examples/s]Map:  28%|#################6                                             | 2806/10000 [00:00<00:01, 4635.24 examples/s]Map:  35%|######################                                         | 3505/10000 [00:00<00:01, 4587.23 examples/s]Map:  40%|#########################1                                     | 3998/10000 [00:00<00:01, 4667.24 examples/s]Map:  47%|#############################4                                 | 4672/10000 [00:01<00:01, 4596.00 examples/s]Map:  53%|#################################6                             | 5345/10000 [00:01<00:01, 4550.18 examples/s]Map:  60%|#####################################8                         | 6000/10000 [00:01<00:00, 4398.60 examples/s]Map:  65%|########################################9                      | 6506/10000 [00:01<00:00, 4544.51 examples/s]Map:  70%|############################################                   | 6988/10000 [00:01<00:00, 4602.25 examples/s]Map:  77%|################################################2              | 7651/10000 [00:01<00:00, 4512.42 examples/s]Map:  83%|####################################################3          | 8303/10000 [00:01<00:00, 4444.99 examples/s]Map:  88%|#######################################################5       | 8810/10000 [00:01<00:00, 4580.84 examples/s]Map:  95%|###########################################################8   | 9501/10000 [00:02<00:00, 4526.22 examples/s]Map: 100%|##############################################################| 10000/10000 [00:02<00:00, 4483.05 examples/s]Map: 100%|##############################################################| 10000/10000 [00:02<00:00, 4459.07 examples/s]
+Map:   0%|                                                                            | 0/10000 [00:00<?, ? examples/s]Map:   5%|###2                                                            | 505/10000 [00:00<00:01, 4978.38 examples/s]Map:  13%|#######9                                                       | 1256/10000 [00:00<00:01, 4628.64 examples/s]Map:  17%|##########8                                                    | 1727/10000 [00:00<00:01, 4641.60 examples/s]Map:  24%|###############1                                               | 2400/10000 [00:00<00:01, 4542.50 examples/s]Map:  29%|##################1                                            | 2875/10000 [00:00<00:01, 4574.77 examples/s]Map:  35%|#####################9                                         | 3480/10000 [00:00<00:01, 4351.29 examples/s]Map:  39%|########################8                                      | 3943/10000 [00:00<00:01, 4416.10 examples/s]Map:  45%|############################2                                  | 4482/10000 [00:01<00:01, 4102.66 examples/s]Map:  49%|##############################9                                | 4911/10000 [00:01<00:01, 4140.02 examples/s]Map:  54%|#################################9                             | 5390/10000 [00:01<00:01, 3792.45 examples/s]Map:  58%|####################################5                          | 5796/10000 [00:01<00:01, 3850.46 examples/s]Map:  62%|#######################################3                       | 6247/10000 [00:01<00:00, 3951.14 examples/s]Map:  67%|##########################################4                    | 6746/10000 [00:01<00:00, 4226.39 examples/s]Map:  74%|##############################################3                | 7363/10000 [00:01<00:00, 4176.52 examples/s]Map:  79%|#################################################5             | 7860/10000 [00:01<00:00, 4377.90 examples/s]Map:  86%|#####################################################8         | 8551/10000 [00:01<00:00, 4432.83 examples/s]Map:  90%|########################################################7      | 9000/10000 [00:02<00:00, 4334.31 examples/s]Map:  95%|###########################################################8   | 9501/10000 [00:02<00:00, 4502.51 examples/s]Map: 100%|##############################################################8| 9980/10000 [00:02<00:00, 4564.89 examples/s]Map: 100%|##############################################################| 10000/10000 [00:02<00:00, 4255.75 examples/s]
+[Epoch 1] Step 100/313 | Batch Loss: 0.5213
+[Epoch 1] Step 200/313 | Batch Loss: 0.6820
+[Epoch 1] Step 300/313 | Batch Loss: 0.3856
+[Epoch 1] Average Loss: 0.5666
+[Epoch 2] Step 100/313 | Batch Loss: 0.2207
+[Epoch 2] Step 200/313 | Batch Loss: 0.3256
+[Epoch 2] Step 300/313 | Batch Loss: 0.3193
+[Epoch 2] Average Loss: 0.3340
+[Epoch 3] Step 100/313 | Batch Loss: 0.1101
+[Epoch 3] Step 200/313 | Batch Loss: 0.0932
+[Epoch 3] Step 300/313 | Batch Loss: 0.2885
+[Epoch 3] Average Loss: 0.1538
+[CNN] Accuracy: 0.7814 F1: 0.7738932561026065
