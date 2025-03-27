@@ -1,7 +1,7 @@
 
 ===== 모델 비교 결과표 =====
 
-    Model  Accuracy        F1
-0     CNN    0.7814  0.773893
-1  KoBERT    0.8553  0.858567
-2     MLP    0.7064  0.685586
+    Model  Accuracy     F1
+0     CNN     0.781  0.774
+1  KoBERT     0.855  0.859
+2     MLP     0.706  0.686
